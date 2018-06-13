@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简历</title>
+    <style>
+    .headline {
+        margin-right: 10%;
+        margin-left: 10%;
+        padding-bottom: 5px;
+        border-top: 4px solid #7c7;
+        border-bottom: 4px solid #7c7;
+        border-left: 4px solid rgb(40, 41, 35);
+        border-right: 4px solid rgb(40, 41, 35);
+        color: rgb(222, 81, 69);
+        font-family: Arial;
+        font-style: normal;
+        font-weight: 100;
+        font-size: 70px;
+        text-align: center;
+        text-decoration: red;
+        line-height: normal;
+        text-shadow: 2px 2px rgb(222, 70, 60);
+        background-image: linear-gradient(to bottom, rgb(103, 216, 239), rgb(160, 125, 252) 50%, rgb(103, 216, 239));
+    }
+
+    .jian {
+        margin-right: 10%;
+    }
+
+    .li {
+        margin-left: 10%;
+    }
+
+    .information {
+        font-family: Arial;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 40px;
+        text-align: left;
+        line-height: normal;
+        text-shadow: 2px 2px rgb(222, 70, 60);
+    }
+
+    li span {
+        color: rgb(56, 222, 141);
+        font-family: Arial;
+        font-style: oblique;
+        font-weight: normal;
+        font-size: 40px;
+        text-align: left;
+        line-height: normal;
+        text-shadow: 2px 2px rgb(140, 103, 215);
+    }
+
+    li [data-name] {
+        color: rgb(172, 128, 255);
+    }
+
+    li.education span {
+        color: rgb(81, 98, 96);
+    }
+
+    li [data-project] {
+        color: rgb(249, 36, 114);
+    }
+
+    ul {
+        list-style-type: upper-roman;
+    }
+
+    a:link {
+        color: rgb(56, 222, 141);
+    }
+
+    a:visited {
+        color: rgb(249, 36, 114);
+    }
+
+    a:focus {
+        border-bottom: 1px solid;
+        background: rgb(140, 103, 215);
+    }
+
+    a:hover {
+        border-bottom: 1px solid;
+        background: #CDFEAA;
+    }
+
+    a:active {
+        background: #265301;
+        color: #CDFEAA;
+    }
+    body{
+        position: relative;
+    }
+    #d{
+        width: 40px;
+        position: absolute;
+        top:140px;
+        right: 140px;
+        font-size:40px;
+        line-height: 70px;
+    }
+    </style>
+</head>
+
+<body>
+    <h1 class="headline"><span class="jian">简</span><span class="li">历</span></h1>
+    <ul class="information">
+        <li class="name">姓名：<span data-name>张三</span></li>
+        <li class="touch">联系方式：
+            <ul>
+                <li>手机：<a class="phone" href="aaa">18600000000</a></li>
+                <li> 邮箱：<span date-email>joinefe@baidu.com</span></li>
+                <li>个人主页：<a href="bbb">aaa</a></li>
+            </ul>
+        </li>
+        <li class="education">学历：<span>本科</span></li>
+        <li class="project">项目：
+            <ul>
+                <li>项目经验：<span data-project="experience">项目A</span></li>
+                <li>项目时间：<span data-project="time">2017.1-2017.8</span></li>
+                <li>项目描述：<span data-project="descrition">在项目A中负责了xxxxx</span></li>
+            </ul>
+    </ul>
+    <button value="specialHobby">点开看看我的特殊爱好</button>
+</body>
+<script>
+    var date=new Date();
+var btn = document.querySelector("button");
+var body1 = document.querySelector("body");
+var d=document.createElement('div');
+var h=date.getHours();
+d.setAttribute("id","d");
+body1.appendChild(d);
+btn.addEventListener("click", hobby);
+
+if(Number(h)<=18&&Number(h)>=6)
+{
+    d.textContent = "早上好";
+}
+else
+{
+    d.textContent = "晚上好";
+}
+function hobby() {
+    if (btn.value == "specialHobby") {
+        btn.style.padding = "0px";
+        btn.style.border = "0px";
+        btn.textContent = "真的想看吗";
+        btn.style.backgroundColor = "red";
+        btn.value = "against";
+    } else {
+        btn.textContent = "";
+        btn.parentNode.removeChild(btn);
+        var passage = document.createElement('p');
+        passage.textContent = "badminton";
+        passage.style.color = "powerBlue";
+        body1.appendChild(passage);
+    }
+}
+</script>
+
+</html>
